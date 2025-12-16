@@ -1,0 +1,17 @@
+{% extends 'c4etech/blog.html' %}
+{% load static %}
+{% block content %}
+  <main class="main">
+    <h1 class="hero">What are you looking for?</h1>
+
+    <div class="categories">
+      {% if data %}
+        {% for datas in data %}
+          <a class="cat" href="{% url datas.url %}">{{datas.product}}</a>
+        {% endfor %}
+      {% else %}
+        <h1 style="color: red;">Some error in conent</h1>  
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}

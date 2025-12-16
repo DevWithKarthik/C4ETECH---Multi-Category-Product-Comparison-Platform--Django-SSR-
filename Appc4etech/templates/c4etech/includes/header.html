@@ -1,0 +1,72 @@
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="{% url 'c4etech:index' %}">C4ETECH</a>
+
+    <!-- checkbox hamburger (unique id) -->
+    <input id="menu-toggle-index" type="checkbox" class="menu-toggle" />
+    <label for="menu-toggle-index" class="hamburger" aria-hidden="true">☰</label>
+
+    <nav class="nav-links">
+      <a href="{% url 'c4etech:index' %}">Home</a>
+      <input class="search" type="search" placeholder="Search..." aria-label="Search" />
+      {% if data.product %}
+        <a href="{% url data.url %}">{{ data.product }}</a>
+      {% endif %}
+      <a href="about.html">About</a>
+      <a href="account.html">Account</a>
+    </nav>
+  </div>
+
+  <!-- mobile menu (CSS toggle) -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="account.html">Account</a>
+  </div>
+</header>
+
+{% comment %} <nav class="navbar navbar-expand-md bg-white border-bottom custom-nav">
+  <div class="container-fluid px-4">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold custom-logo" href="index.html">C4ETECH</a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <!-- Left side links -->
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 align-items-md-center gap-md-3 custom-links">
+
+        <li class="nav-item">
+          <a class="nav-link custom-link-item" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item d-none d-md-block">
+          <!-- Search only visible in ≥768px -->
+          <input type="search" class="form-control custom-search" placeholder="Search...">
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link custom-link-item" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link custom-link-item" href="account.html">Account</a>
+        </li>
+
+      </ul>
+
+      <!-- Search for mobile (visible only below 768px) -->
+      <form class="d-flex d-md-none mt-2">
+        <input class="form-control custom-search" type="search" placeholder="Search...">
+      </form>
+
+    </div>
+  </div>
+</nav> {% endcomment %}

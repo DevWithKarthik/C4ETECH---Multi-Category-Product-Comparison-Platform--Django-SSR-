@@ -1,0 +1,24 @@
+{% extends 'c4etech/blog.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'tablets/tablets.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1 class="page-title">SMART PHONES</h1>
+  <h2 class="subtitle">Select the Brand</h2>
+
+  <section class="brand-grid">
+        {% for brand in brands %}
+            <a class="brand-card" href="{% url 'tablets:tablet_brands' brand.slug %}">
+                <div class="brand-thumb">
+                    <img src="{% static brand.image %}" alt="{{brand.name}} logo"/>
+                </div>
+                <div class="brand-name">{{brand.name}}</div>
+            </a>
+        {% endfor %}
+  </section>
+</main>
+{% endblock %}

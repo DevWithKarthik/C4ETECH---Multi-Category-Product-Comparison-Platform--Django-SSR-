@@ -1,0 +1,206 @@
+/* smartphones.css - brands list (no JS) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --maxw: 1100px;
+    --pad: 20px;
+    --muted: #666;
+    --accent: #0b66ff;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #111;
+    background: #fff;
+}
+
+/* NAV */
+.nav {
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 12px var(--pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.brand {
+    font-weight: 800;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.search {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+/* mobile menu */
+.mobile-menu {
+    display: none;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 10px var(--pad);
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+/* Show mobile menu when checkbox checked */
+#menu-toggle-phones:checked~.mobile-menu {
+    display: flex;
+}
+
+/* CONTENT */
+.container {
+    max-width: var(--maxw);
+    margin: 28px auto;
+    padding: 0 var(--pad);
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+/* GRID */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* brand card */
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #111;
+    transition: transform .13s ease, box-shadow .13s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(10, 20, 40, 0.06);
+    
+}
+
+.brand-thumb img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: black;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 48px;
+    padding: 22px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* responsive breakpoints */
+/* <=1024 */
+@media (max-width:1024px) {
+    .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* <=768 (tablet) */
+@media (max-width:768px) {
+    .search {
+        width: 160px;
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    /* toggled by checkbox */
+}
+
+/* <=425 (mobile) */
+@media (max-width:425px) {
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+}

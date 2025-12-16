@@ -1,0 +1,51 @@
+{% extends 'c4etech/blog.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'smartphones/brand_details.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container">
+
+    <h1 class="brand-title">{{ brand.name }}</h1>
+
+    {% for phone in phones %}
+    <article class="model-card">
+
+        <header class="model-title">
+            <h2>{{ phone.name }}</h2>
+        </header>
+
+        <div class="model-content">
+
+            <div class="image-col">
+                <img src="{% static phone.image %}" alt="{{ phone.name }}">
+            </div>
+
+            <div class="specs-col">
+                <h3>Overview</h3>
+                <ul>
+                    {% for item in phone.overview_set.all %}
+                        <li>{{ item.text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="extra-col">
+                <h3>Key Specs</h3>
+                <ul>
+                    {% for spec in phone.keyspec_set.all %}
+                        <li>{{ spec.text }}</li>
+                    {% endfor %}
+                </ul>
+                
+            </div>
+
+        </div>
+
+    </article>
+    {% endfor %}
+
+</main>
+{% endblock %}

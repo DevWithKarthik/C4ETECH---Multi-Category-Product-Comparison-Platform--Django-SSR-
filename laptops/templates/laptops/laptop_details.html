@@ -1,0 +1,45 @@
+{% extends 'c4etech/blog.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static "laptops/laptop_details.css" %}">
+{% endblock extra_css %}
+
+{% block content %}
+  <main class="container">
+    <h1 class="brand-title">{{ brand.name }}</h1>
+
+    {% for laptop in laptops %}
+      <article class="model-card">
+        <header class="model-title">
+          <h2>{{ laptop.name }}</h2>
+        </header>
+
+        <div class="model-content">
+          <div class="image-col">
+            <img src="{% static laptop.image %}" alt="{{ laptop.name }}" />
+          </div>
+
+          <div class="specs-col">
+            <h3>Overview</h3>
+            <ul>
+              {% for items in laptop.overviews.all %}
+                <li>{{ items.text }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="extra-col">
+            <h3>Key specs</h3>
+            <ul>
+              {% for specs in laptop.keyspecs.all %}
+                <li>{{ specs.text }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </main>
+{% endblock %}

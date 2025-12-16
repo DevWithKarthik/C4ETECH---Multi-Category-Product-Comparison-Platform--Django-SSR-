@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C4ETECH</title>
+
+  <!-- Bootstrap FIRST -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="{% static 'c4etech/style.css' %}">
+
+  <!-- Page specific CSS -->
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+  {% include 'c4etech/includes/header.html' %}
+
+  {% block content %}{% endblock %}
+
+  {% include 'c4etech/includes/footer.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

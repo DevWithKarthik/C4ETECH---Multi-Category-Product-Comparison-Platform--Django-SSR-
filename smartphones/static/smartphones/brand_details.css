@@ -1,0 +1,250 @@
+/* samsung.css - brand models (card layout, 3->2->1) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --maxw: 1100px;
+    --pad: 20px;
+    --muted: #666;
+    --cardbg: #fff;
+    --accent: #0b66ff;
+}
+
+/* base */
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #111;
+    background: #f7f8fb;
+}
+
+/* NAV */
+.nav {
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 12px var(--pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.brand {
+    font-weight: 800;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.search {
+    padding: 8px 12px;
+    width: 260px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* mobile menu */
+.mobile-menu {
+    display: none;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 10px var(--pad);
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+#menu-toggle-samsung:checked~.mobile-menu {
+    display: flex;
+}
+
+/* container */
+.container {
+    max-width: var(--maxw);
+    margin: 28px auto;
+    padding: 0 var(--pad);
+}
+
+.brand-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+/* model card */
+.model-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(10, 20, 40, 0.03);
+}
+
+.model-title h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* inner content - flex container that wraps */
+.model-content {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* allows 3 -> 2 -> 1 */
+}
+
+/* columns */
+/* .col {
+    background: transparent;
+    padding: 6px;
+    min-width: 0;
+} */
+
+.image-col {
+    flex: 0 0 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-col img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.specs-col {
+    flex: 1 1 38%;
+}
+
+.extra-col {
+    flex: 0 0 28%;
+}
+
+/* typographic */
+.model-content h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.model-content ul {
+    margin-left: 18px;
+    list-style: disc;
+    color: #333;
+}
+
+/* RESPONSIVE RULES
+   Desktop (>=1024): image 28% | specs 38% | extra 28% -> 3 columns
+   Tablet (<=768): reduce to two columns (wrap) -> we'll set widths so two fit
+   Mobile (<=425): single column (stack)
+*/
+
+/* >=1024: keep 3 columns (default above) */
+
+/* <=1024 adjust slightly */
+@media (max-width: 990px) {
+    .image-col {
+        flex-basis: 30%;
+        max-width: 30%;
+    }
+
+    .specs-col {
+        flex-basis: 45%;
+    }
+
+    .extra-col {
+        flex-basis: 25%;
+    }
+}
+
+/* <=768: make two columns on row (use flex-basis to cause wrap) */
+@media (max-width:768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }
+
+    .search {
+        width: 140px;
+        display: inline-block;
+    }
+
+    /* Force two columns: image + specs on first row, extra-col wraps to next row */
+    .image-col {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .specs-col {
+        flex: 1 1 48%;
+        max-width: 48%;
+    }
+
+    .extra-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 12px;
+    }
+}
+
+/* <=425: single column stack */
+@media (max-width:430px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .image-col,
+    .specs-col,
+    .extra-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .image-col {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .model-title h2 {
+        font-size: 18px;
+    }
+}
