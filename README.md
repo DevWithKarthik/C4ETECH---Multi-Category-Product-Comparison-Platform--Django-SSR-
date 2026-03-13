@@ -28,6 +28,39 @@ Product details dynamically loaded from MySQL, not hardcoded.
 🔹 Custom Management Commands
 Structured data population using Django management commands (populate_*) for brands, products, overviews, and key specs.
 
+Screen Shots
+
+🔹 Landing Page
+![alt text](<Screenshot 2026-03-13 120620.png>)
+
+🔹 SmartPhones Page
+![alt text](<Screenshot 2026-03-13 120650.png>)
+
+        🔹  Particular Brand (Eg: Samsung)
+                ![alt text](<Screenshot 2026-03-13 120710.png>)
+
+        🔹  Particular Brand (Eg: iQOO)
+                ![alt text](<Screenshot 2026-03-13 120727.png>)
+
+🔹 Laptop Page
+![alt text](<Screenshot 2026-03-13 120740.png>)
+
+        🔹  Particular Brand (Eg: ACER)
+                ![alt text](<Screenshot 2026-03-13 120807.png>)
+
+🔹 Tablet Page
+![alt text](<Screenshot 2026-03-13 121022.png>)
+
+        🔹  Particular Brand (Eg: Samsung)
+                ![alt text](<Screenshot 2026-03-13 121037.png>)
+
+🔹 Home Appliances Page
+![alt text](<Screenshot 2026-03-13 121114.png>)
+
+        🔹  Particular Product (Eg: Washing Machine)
+                ![alt text](<Screenshot 2026-03-13 121128.png>)
+    
+
 🛠 Tech Stack
     Frontend
         HTML5
