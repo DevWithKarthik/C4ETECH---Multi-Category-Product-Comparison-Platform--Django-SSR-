@@ -62,6 +62,80 @@ Structured data population using Django management commands (populate_*) for bra
 
     Applying real-world backend logic using relational data
 
+
+⚙️ How to Run Locally
+
+### Prerequisites
+Make sure you have the following installed:
+- Python 3.x
+- MySQL
+- Git
+
+---
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/DevWithKarthik/c4etech.git
+cd c4etech
+```
+
+### 2. Create & Activate Virtual Environment
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (Mac/Linux)
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Database
+Create a MySQL database and update `settings.py`:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'c4etech_db',
+        'USER': 'your_mysql_username',
+        'PASSWORD': 'your_mysql_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
+
+### 5. Apply Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Populate Sample Data
+```bash
+# Run custom management commands to load data
+python manage.py populate_brands
+python manage.py populate_products
+python manage.py populate_specs
+```
+
+### 7. Run the Development Server
+```bash
+python manage.py runserver
+```
+
+### 8. Open in Browser
+```
+http://127.0.0.1:8000
+```
+
+
 📌 Future Enhancements
 
     🔐 User authentication & login
